@@ -1,11 +1,13 @@
+// import Board from './assets/components/Board';
+import Game from "./assets/components/Game";
+
+
 function App() {
-
-
   return (
     <>
-      ciao
+      <Game />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
