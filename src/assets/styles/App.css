@@ -1,0 +1,153 @@
+.board {
+    display: inline-block;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+  
+  .board-row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .board-row::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .square {
+    background: white;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+  }
+
+  /* Input radio */
+
+  .radio-input {
+    display: flex;
+    flex-direction: row;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    height: 40px;
+  }
+  
+  .radio-input input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-input label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #212121;
+    border-radius: 5px;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 12px;
+  }
+  
+  .radio-input label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-input input[type="radio"]:checked + label:before {
+    background-color: green;
+    top: 0;
+  }
+  
+  .radio-input input[type="radio"]:checked + label {
+    background-color: royalblue;
+    color: #fff;
+    border-color: rgb(129, 235, 129);
+    animation: radio-translate 0.5s ease-in-out;
+    height: 40px;
+  }
+  
+  @keyframes radio-translate {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .square:hover {
+    background: #ddd;
+    cursor: pointer;
+  }
+
+  .winner-shadow {
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  }
+  
+  /* Stili per il tabellone classico */
+  .board.style-classic {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    padding: 10px;
+  }
+  
+  /* Stili per il tabellone moderno */
+  .board.style-modern {
+    background-color: black;
+    border: 2px solid yellowgreen;;
+    color: yellowgreen;
+    padding: 10px;
+  }
+
+  .board.style-future {
+    background-color: #00FFFF;
+    border: 2px solid 	#800080;
+    color: 	#800080;
+    padding: 10px;
+  }
+  
+  /* Stili per le caselle del tabellone classico */
+  .square.style-classic {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Stili per le caselle del tabellone moderno */
+  .square.style-modern {
+    background-color: black;
+    color: white;
+  }
+
+  .square.style-future {
+    background-color: yellowgreen;
+    color: white;
+  }
