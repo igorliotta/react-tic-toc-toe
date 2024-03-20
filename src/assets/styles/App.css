@@ -370,12 +370,12 @@
 
   .backdrop {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background-color: rgb(183, 8, 199);
     z-index: -1;
-    top: 50%;
-    left: 50%;
+    top: 46%;
+    left: 53%;
     border-radius: 15px;
     transform: translateX(-50%) translateY(-50%);
     transition: all ease-in-out 0.5s;
@@ -535,6 +535,36 @@
   animation-name: fadeInUp;
   -webkit-animation-name: fadeInUp;
 }
+
+.fadeOut {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+      transform: translate3d(0px,100px,0)
+      scale(0.1)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+      scale: (0);
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+
 
 
 

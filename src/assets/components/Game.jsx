@@ -61,7 +61,7 @@ export default function Game() {
           >
             <div
               className={`screen border-solid border-2 border-orange-200 rounded-xl bg-cover ${
-                gameStarted ? "half-width animated animatedFadeInUp fadeInUp" : "" 
+                gameStarted ? "half-width animated animatedFadeInUp fadeInUp" : "fadeOut" 
               }`}
               style={{
                 backgroundImage: gameStarted ? "none" : `url(${Wallpaper})`,
