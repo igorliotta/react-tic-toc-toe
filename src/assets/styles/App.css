@@ -400,6 +400,7 @@
    
    .circle {
     padding: 0 4px;
+    transition: box-shadow .3s;
    }
    
    .box {
@@ -413,6 +414,10 @@
    
    .red {
     background-color: #ff605c;
+   }
+
+   .red:hover {
+    box-shadow: 0 0 11px red;
    }
    
    .yellow {

@@ -20,6 +20,10 @@ export default function Game() {
     setGameStarted(true);
   }
 
+  function handleResetScreen() {
+    setGameStarted(false);
+  }
+
   function handleReset() {
     setHistory([Array(9).fill(null)]);
     setCurrentMove(0);
@@ -121,7 +125,7 @@ export default function Game() {
 
                     <div className="card">
                       <div className="tools">
-                        <div className="circle">
+                        <div className="circle" onClick={handleResetScreen}>
                           <span className="red box"></span>
                         </div>
                         <div className="circle">
