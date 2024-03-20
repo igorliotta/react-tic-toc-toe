@@ -1,11 +1,19 @@
 import Square from "./Square";
 import "../styles/App.css";
+import { useState, useEffect } from 'react'; // Importa useState e useEffect
 
 function Board({ xIsNext, squares, onPlay, boardStyle }) {
-  // const [xIsNext, setXIsNext] = useState(true);
-  // const [squares, setSquares] = useState(Array(9).fill(null));
+  const [isBoardVisible, setIsBoardVisible] = useState(false); // Aggiungi stato per gestire la visibilità della griglia
 
+  useEffect(() => {
+    if (boardStyle) {
+      setIsBoardVisible(true); // Imposta la visibilità della griglia su true quando boardStyle è definito
+    }
+  }, [boardStyle]); // Aggiorna la visibilità della griglia quando cambia boardStyle
 
+  if (!isBoardVisible) {
+    return null; // Se isBoardVisible è false, non renderizzare nulla
+  }
 
   const winner = calculateWinner(squares);
   let status;
@@ -50,7 +58,7 @@ function Board({ xIsNext, squares, onPlay, boardStyle }) {
 
   return (
     <div className={`board ${boardStyle === "classic" ? "style-classic" : boardStyle === "modern" ? "style-modern" : "style-future"}`}>
-      <div className="status text-3xl mt-4 mb-8 text-white text-center">
+      <div className="status text-xl mt-4 mb-8 text-white text-center">
         <span className="font-mono text-lime-500 winner-shadow">{status}</span>
       </div>
       <div className="board-rows">

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Board from "./Board";
-import Image from "../images/tris-2.jpeg";
+import Icons from "../images/icons.png";
+import Wallpaper from "../images/bg.jpeg";
+import Tris from "../images/tris.png";
 
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -9,7 +11,7 @@ export default function Game() {
   const currentSquares = history[currentMove];
   const [gameStarted, setGameStarted] = useState(false);
   const [gameReset, setGameReset] = useState(false);
-  const [boardStyle, setBoardStyle] = useState("classic"); // Stile predefinito
+  const [boardStyle, setBoardStyle] = useState(""); // Stile predefinito
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
@@ -41,7 +43,7 @@ export default function Game() {
       <li key={move}>
         <button
           onClick={() => jumpTo(move)}
-          className="bg-slate-950 border border-lime-700 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group text-lime-300 mb-2"
+          className="text-xs bg-slate-950 border border-lime-700 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group text-lime-300 mb-2"
         >
           <span className="bg-slate-400 shadow-lime-700 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)] text-lime-300"></span>
           {description}
@@ -51,78 +53,120 @@ export default function Game() {
   });
 
   return (
-    <div
-      className="w-screen h-screen bg-no-repeat bg-cover relative"
-      style={{ backgroundImage: `url(${Image})` }}
-    >
-      <div className="game flex gap-5 text-center">
-        <div className="game-board absolute right-96 mt-12 flex gap-4">
+    <>
+      
 
-          {/* Bottone play game */}
-          {!gameStarted && (
-            <button
-              onClick={() => setGameStarted(true)}
-              className="relative cursor-pointer opacity-90 hover:opacity-100 transition-opacity p-[2px] bg-black rounded-[16px] bg-gradient-to-t from-[#8122b0] to-[#dc98fd] active:scale-95 absolute righr-5 animate-bounce shadow-2xl shadow-zinc-300 h-10"
-            >
-              <span className="w-full h-full flex items-center gap-2 px-8 py-3 bg-[#B931FC] text-[#f1d5fe] rounded-[14px] bg-gradient-to-t from-[#a62ce2] to-[#c045fc]">
-              <i className="fa-solid fa-gamepad"></i>
-                Play Game
-              </span>
-            </button>
-          )}
-          {gameStarted && (
-            <>
-            {/* Selettore di stile */}
+      {/* Prova macbook */}
+      <div className="flex flex-col m-auto">
+        <div className="display m-auto">
+          <div
+            className={`screen border-solid border-4 border-orange-200 rounded-xl p-5 bg-cover ${
+              gameStarted ? "half-width" : ""
+            }`}
+            style={{
+              backgroundImage: gameStarted ? "none" : `url(${Wallpaper})`,
+              backgroundColor: gameStarted ? "white" : "transparent",
+            }}
+          >
+            {!gameStarted && (
+              <>
+                <div className="">
+                  <button
+                    className="button"
+                    onClick={() => setGameStarted(true)}
+                  >
+                    <img src={Tris} alt="" className="icon" />
+                  </button>
+                  <span className="backdrop"></span>
+                </div>
+                <span className="text-white absolute tris-text text-xs">
+                  Tris
+                </span>
+              </>
+            )}
+            {gameStarted && (
+              <>
+                <div className="p-2 font-mono flex flex-col gap-3">
+                  <p className="p-2 text-xs w-48 text-center">
+                    Choose Board Style:
+                  </p>
+                  <div className="mx-2 radio-input">
+                    <input
+                      value="classic"
+                      name="board-style"
+                      id="classic"
+                      type="radio"
+                      checked={boardStyle === "classic"}
+                      onChange={(e) => setBoardStyle(e.target.value)}
+                    />
+                    <label htmlFor="classic">Classic</label>
+                    <input
+                      value="modern"
+                      name="board-style"
+                      id="modern"
+                      type="radio"
+                      checked={boardStyle === "modern"}
+                      onChange={(e) => setBoardStyle(e.target.value)}
+                    />
+                    <label htmlFor="modern">Modern</label>
+                    <input
+                      value="future"
+                      name="board-style"
+                      id="future"
+                      type="radio"
+                      checked={boardStyle === "future"}
+                      onChange={(e) => setBoardStyle(e.target.value)}
+                    />
+                    <label htmlFor="future">Future</label>
 
-          <div className="mb-4 font-mono">
-           <p className="mb-2">Choose Board Style</p>
-            <div className="mb-4 radio-input">
-              <input
-                value="classic"
-                name="board-style"
-                id="classic"
-                type="radio"
-                checked={boardStyle === "classic"}
-                onChange={(e) => setBoardStyle(e.target.value)}
-              />
-              <label htmlFor="classic">Classic</label>
-              <input
-                value="modern"
-                name="board-style"
-                id="modern"
-                type="radio"
-                checked={boardStyle === "modern"}
-                onChange={(e) => setBoardStyle(e.target.value)}
-              />
-              <label htmlFor="modern">Modern</label>
-              <input
-                value="future"
-                name="board-style"
-                id="future"
-                type="radio"
-                checked={boardStyle === "future"}
-                onChange={(e) => setBoardStyle(e.target.value)}
-              />
-              <label htmlFor="future">Future</label>
+                    <div className="card">
+                      <div className="tools">
+                        <div className="circle">
+                          <span className="red box"></span>
+                        </div>
+                        <div className="circle">
+                          <span className="yellow box"></span>
+                        </div>
+                        <div className="circle">
+                          <span className="green box"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <Board
+                    xIsNext={xIsNext}
+                    squares={currentSquares}
+                    onPlay={handlePlay}
+                    boardStyle={boardStyle}
+                  />
+                </div>
+              </>
+            )}
+            {gameStarted && (
+              <>
+                <div className="game-info absolute bottom-10 right-10 m-4">
+                  <ol>{moves}</ol>
+                </div>
+              </>
+            )}
+
+            <div className="dock">
+              <img src={Icons} alt="" />
             </div>
           </div>
-          <Board
-              xIsNext={xIsNext}
-              squares={currentSquares}
-              onPlay={handlePlay}
-              boardStyle={boardStyle}
-            />
-            </>
-          )}
+          <span className="label">
+            MacBook Pro <i className="fa-brands fa-apple"></i>
+          </span>
         </div>
-        {gameStarted && (
-          <>
-          <div className="game-info absolute right-36 top-0 mt-12">
-            <ol>{moves}</ol>
-          </div>
-          </>
-        )}
+        <div className="keys m-auto">
+          <div className="boarD"></div>
+          <div className="touchpad"></div>
+        </div>
+        <div className="comp m-auto">
+          <div className="notch"></div>
+        </div>
+        <div className="compBottom m-auto"></div>
       </div>
-    </div>
+    </>
   );
 }

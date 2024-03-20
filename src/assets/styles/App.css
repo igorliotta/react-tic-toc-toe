@@ -1,9 +1,29 @@
 .board {
     display: inline-block;
     border-spacing: 0;
-    margin-bottom: 20px;
+    margin-left: 4px;
     border-collapse: collapse;
+    position: absolute;
+    top: 25%;
+    /* animation: slideInFromBottom 1.0s ease-out; */
+    height: 300px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
+
+  /* @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  } */
   
   .board-row {
     display: flex;
@@ -20,15 +40,15 @@
     background: white;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
-    line-height: 34px;
-    height: 34px;
+    line-height: 20px;
+    height: 24px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 24px;
   }
 
   /* Input radio */
@@ -115,7 +135,7 @@
   /* Stili per il tabellone classico */
   .board.style-classic {
     background-color: white;
-    border: 2px solid black;
+    
     color: black;
     padding: 10px;
   }
@@ -123,31 +143,282 @@
   /* Stili per il tabellone moderno */
   .board.style-modern {
     background-color: black;
-    border: 2px solid yellowgreen;;
-    color: yellowgreen;
+    color: lime;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
 
   .board.style-future {
     background-color: #00FFFF;
-    border: 2px solid 	#800080;
     color: 	#800080;
     padding: 10px;
   }
   
   /* Stili per le caselle del tabellone classico */
-  .square.style-classic {
+  .square .style-classic {
     background-color: white;
     color: black;
   }
   
   /* Stili per le caselle del tabellone moderno */
-  .square.style-modern {
+  .square .style-modern {
     background-color: black;
     color: white;
   }
 
-  .square.style-future {
-    background-color: yellowgreen;
+  .square .style-future {
+    background-color: lime;
     color: white;
   }
+
+
+  /* Macbook */
+
+  body {
+    background-color: rgb(14, 14, 14);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .display {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1095px;
+    height: 700px;
+    border: 2px solid #464752;
+    border-radius: 1rem;
+    background: #181818;
+    -webkit-filter: drop-shadow(0px 0px 10px #fcfcfcb7);
+    filter: drop-shadow(0px 0px 10px #ffffffb7);
+    animation: shine2 12s infinite;
+  }
+  
+  .screen {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 88%;
+    background-position: top;
+    left: 2.5%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+  
+  .dock {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 1px;
+    
+    height: 30px;
+    background: #ffffff59;
+    border-radius: 3px;
+  }
+  .icons {
+    color: #69a5ff;
+    box-shadow: #181818;
+  }
+  .label {
+    position: absolute;
+    color: #696969;
+    font-size: 18px;
+    font-family: "Signika Negative", sans-serif;
+    z-index: 4;
+    bottom: 10px;
+  }
+  .keys {
+    position: relative;
+    width: 1275px;
+    top: -8px;
+    height: 0;
+    border-left: 95px solid transparent;
+    border-right: 95px solid transparent;
+    border-bottom: 30px solid #4e4e4e;
+    display: flex;
+    justify-content: center;
+  }
+  .boarD {
+    position: relative;
+    width: 450px;
+    height: 0;
+    top: 2px;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 15px solid #141414ce;
+  }
+  .touchpad {
+    position: absolute;
+    width: 160px;
+    height: 0;
+    top: 20px;
+    border-radius: 20px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 8px solid #3f3f3f96;
+  }
+  
+  .comp {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: -8px;
+    width: 1275px;
+    height: 12px;
+    background: #393a42;
+    -webkit-filter: drop-shadow(-10px 40px 30px #dfdfdfb7);
+    filter: drop-shadow(-10px 40px 30px #dfdfdfb7);
+    animation: shine1 10s infinite;
+  }
+  .notch {
+    position: relative;
+    width: 120px;
+    height: 10px;
+    background: #4e4f58;
+    border-radius: 0 0 20px 20px;
+  }
+  .compBottom {
+    position: relative;
+    top: -9px;
+    width: 1275px;
+    height: 3px;
+    background: #35353d;
+    border-radius: 0 0 50% 50%;
+  }
+  
+  @keyframes shine1 {
+    0% {
+      -webkit-filter: drop-shadow(-10px 40px 30px #ffffffb7);
+      filter: drop-shadow(-10px 40px 30px #dfdfdfb7);
+    }
+  
+    50% {
+      -webkit-filter: drop-shadow(-20px 40px 20px #11a0f3b7);
+      filter: drop-shadow(-20px 40px 20px #11a0f3b7);
+    }
+  
+    100% {
+      -webkit-filter: drop-shadow(-10px 40px 30px #dfdfdfb7);
+      filter: drop-shadow(-10px 40px 30px #dfdfdfb7);
+    }
+  }
+  
+  @keyframes shine2 {
+    0% {
+      -webkit-filter: drop-shadow(0px 0px 10px #fcfcfcb7);
+      filter: drop-shadow(0px 0px 10px #ffffffb7);
+    }
+  
+    50% {
+      -webkit-filter: drop-shadow(0px -140px 40px #ff3defb7);
+      filter: drop-shadow(0px -40px 40px #ff3defb7);
+    }
+  
+    100% {
+      -webkit-filter: drop-shadow(0px 0px 10px #fcfcfcb7);
+      filter: drop-shadow(0px 0px 10px #ffffffb7);
+    }
+  }
+
+  /* Icona app desktop */
+
+  .button {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0px;
+    cursor: pointer;
+    outline: 0px;
+    padding: 0 2px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+  }
+
+  .backdrop {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(183, 8, 199);
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translateX(-50%) translateY(-50%);
+    transition: all ease-in-out 0.5s;
+  }
+  
+  .icon {
+    font-size: 28px;
+    margin-top: 5px;
+    color: white;
+  }
+  
+  .button:hover +.backdrop {
+    top: 48%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    transform: rotate(15deg) translateX(-50%) translateY(-50%);
+  }
+  
+  .button:active,.button:active +.backdrop {
+    box-shadow: none;
+  }
+
+  .tris-text {
+    top: 50%;
+    left: 51%;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .screen.half-width {
+    width: 47.5%; /* Metà della larghezza originale */
+    left: 26.25%; /* Posizione iniziale modificata per centrare il div dimezzato */
+  }
+
+  /* Pallini */
+   
+   .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+   }
+   
+   .circle {
+    padding: 0 4px;
+   }
+   
+   .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+   }
+   
+   .red {
+    background-color: #ff605c;
+   }
+   
+   .yellow {
+    background-color: #ffbd44;
+   }
+   
+   .green {
+    background-color: #00ca4e;
+   }
