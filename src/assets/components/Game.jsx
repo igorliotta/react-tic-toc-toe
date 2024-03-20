@@ -4,6 +4,7 @@ import Icons from "../images/icons.png";
 import Wallpaper from "../images/bg.jpeg";
 import Tris from "../images/tris.png";
 import WallpaperBlur from "../images/bg-blur.jpg";
+import UpBar from "../images/upbar.png";
 
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -59,8 +60,8 @@ export default function Game() {
             style={{ backgroundImage: `url(${WallpaperBlur})` }}
           >
             <div
-              className={`screen rounded-xl bg-cover ${
-                gameStarted ? "half-width animated animatedFadeInUp fadeInUp" : "" // Aggiungi la classe fade-in qui
+              className={`screen border-solid border-2 border-orange-200 rounded-xl bg-cover ${
+                gameStarted ? "half-width animated animatedFadeInUp fadeInUp" : "" 
               }`}
               style={{
                 backgroundImage: gameStarted ? "none" : `url(${Wallpaper})`,
@@ -79,7 +80,7 @@ export default function Game() {
                     <span className="backdrop"></span>
                   </div>
                   <span className="text-white absolute tris-text text-xs">
-                    Tris
+                    Tic Tac Toe
                   </span>
                 </>
               )}
@@ -151,14 +152,21 @@ export default function Game() {
               )}
 
               {gameStarted && (
+                <>
                 <div className="dock hidden">
                   <img src={Icons} alt="" />
                 </div>
+                </>
               )}
               {!gameStarted && (
+                <>
+                <div className="menubar">
+                  <img src={UpBar} alt="" />
+                </div>
                 <div className="dock">
                   <img src={Icons} alt="" />
                 </div>
+                </>
               )}
             </div>
           </div>

@@ -220,6 +220,15 @@
     align-items: center;
   }
 
+  .menubar {
+    width: 100%;
+    
+  }
+  .menubar img {
+    width: 100%;
+    border-top-right-radius: 0.75rem;
+    border-top-left-radius: 0.75rem;
+  }
 
   .dock {
     position: absolute;
@@ -229,6 +238,8 @@
     bottom: 0px;
     background: #ffffff59;
     border-radius: 3px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   .icons {
     color: #69a5ff;
@@ -388,8 +399,9 @@
 
   .tris-text {
     top: 50%;
-    left: 51%;
+    left: 49%;
     font-family: 'Courier New', Courier, monospace;
+    margin-top: 2px;
   }
 
   .screen.half-width {
@@ -485,12 +497,14 @@
 
 @keyframes fadeInUp {
   from {
-      transform: translate3d(0,40px,0)
+      transform: translate3d(-230px,0px,0)
+      scale(0.1)
   }
 
   to {
       transform: translate3d(0,0,0);
-      opacity: 1
+      opacity: 1;
+      scale: (1);
   }
 }
 
@@ -506,7 +520,7 @@
 }
 
 .animated {
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: both;
   -webkit-animation-duration: 1s;
   -webkit-animation-fill-mode: both
