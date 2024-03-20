@@ -15,10 +15,14 @@ function Board({ xIsNext, squares, onPlay, boardStyle }) {
     return null; // Se isBoardVisible è false, non renderizzare nulla
   }
 
+  const isBoardFull = squares.every(square => square);
+
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
     status = "Winner: " + winner;
+  } else if (isBoardFull) {
+    status = "It's a draw! Reset a new Game!";
   } else {
     status = "Next player: " + (xIsNext ? "❌" : "○");
   }
@@ -51,7 +55,7 @@ function Board({ xIsNext, squares, onPlay, boardStyle }) {
     if (xIsNext) {
       nextSquares[i] = "❌";
     } else {
-      nextSquares[i] = "O";
+      nextSquares[i] = "❍";
     }
     onPlay(nextSquares);
   }
