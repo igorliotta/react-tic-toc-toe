@@ -51,7 +51,7 @@ function Board({ xIsNext, squares, onPlay, boardStyle }) {
     if (xIsNext) {
       nextSquares[i] = "❌";
     } else {
-      nextSquares[i] = "○";
+      nextSquares[i] = "O";
     }
     onPlay(nextSquares);
   }
@@ -59,7 +59,7 @@ function Board({ xIsNext, squares, onPlay, boardStyle }) {
   return (
     <div className={`board ${boardStyle === "classic" ? "style-classic" : boardStyle === "modern" ? "style-modern" : "style-future"}`}>
       <div className="status text-xl mt-4 mb-8 text-white text-center">
-        <span className="font-mono text-lime-500 winner-shadow">{status}</span>
+        <span className="font-mono winner-shadow animate-pulse">{status}</span>
       </div>
       <div className="board-rows">
         {[0, 1, 2].map(row => (
